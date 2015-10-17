@@ -4,6 +4,17 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    sound_cloud_facade:
+        class: Njasm\Soundcloud\SoundcloudFacade
+        arguments:
+            - %soundcloud.id%
+            - %soundcloud.secret%
+
+    sound_cloud_client:
+        class: AppBundle\Services\SoundCloudClient
+        arguments:
+            - "@sound_cloud_facade"
+            - %soundcloud.username%
+            - %soundcloud.password%
+            - %soundcloud.user_id%
+
