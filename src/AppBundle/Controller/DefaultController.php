@@ -20,7 +20,7 @@ class DefaultController extends Controller
         /** @var SoundCloudClient  $client*/
         $client = $this->get('sound_cloud_client');
         $response = $client->uploadFile(
-            '/home/matus/old_telephone_short+voice+EN+F.mp3',
+            '/data/automatic_calls_message.wav',
             $description,
             $title,
             $lat,
@@ -43,10 +43,10 @@ class DefaultController extends Controller
         /** @var SoundCloudClient  $client*/
         $client = $this->get('sound_cloud_client');
 
-        $description = $request->query->get('description');
-        $title = $request->query->get('title');
-        $lat = $request->query->get('lat');
-        $lon = $request->query->get('lon');
+        $description = $request->request->get('description');
+        $title = $request->request->get('title');
+        $lat = $request->request->get('lat');
+        $lon = $request->request->get('lon');
 
         /** @var UploadedFile $file */
         $file = $request->files->get('recording');

@@ -27,11 +27,10 @@ class SoundCloudClient
     {
         $params = [
             'track[title]' => $title,
-//            'track[description]' => $description,
-//            'track[tag_list]' => 'geo:lat=' . $lat . ' geo:lon=' . $lon,
+            'track[description]' => $description,
+            'track[tag_list]' => 'geo:lat=' . $lat . ' geo:lon=' . $lon,
         ];
 
-        $fileName = '/home/matus/old_telephone_short+voice+EN+F.mp3';
         $response = $this->client->upload($fileName, $params);
 
         return $response->bodyArray();
